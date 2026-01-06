@@ -45,6 +45,7 @@ Thumbs.db
 # Frontend
 frontend/.env
 frontend/dist
+frontend/.angular
 
 # Python-generated files
 backend/__pycache__/
