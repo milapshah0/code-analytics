@@ -1,0 +1,3 @@
+.test-apply {
+    @apply bg-red-500 p-4 font-bold text-white;
+}

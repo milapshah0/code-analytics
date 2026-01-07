@@ -2,17 +2,20 @@
   <!-- Sidebar -->
   <aside class="w-64 bg-slate-900 text-white flex flex-col">
     <div class="p-6">
-      <h1 class="text-xl font-bold tracking-tight">CodeAnalytics</h1>
+      <h1 class="text-xl font-bold tracking-tight test-apply">CodeAnalytics</h1>
       <p class="text-slate-400 text-xs mt-1">v1.0.0 Alpha</p>
     </div>
-    
+
     <nav class="flex-1 px-4 space-y-2">
       <a href="#" class="block px-4 py-2 bg-primary-600 rounded-lg text-sm font-medium">Dashboard</a>
-      <a href="#" class="block px-4 py-2 hover:bg-slate-800 rounded-lg text-sm font-medium text-slate-300">Repositories</a>
-      <a href="#" class="block px-4 py-2 hover:bg-slate-800 rounded-lg text-sm font-medium text-slate-300">Jira Tickets</a>
-      <a href="#" class="block px-4 py-2 hover:bg-slate-800 rounded-lg text-sm font-medium text-slate-300">Team Insights</a>
+      <a href="#"
+        class="block px-4 py-2 hover:bg-slate-800 rounded-lg text-sm font-medium text-slate-300">Repositories</a>
+      <a href="#" class="block px-4 py-2 hover:bg-slate-800 rounded-lg text-sm font-medium text-slate-300">Jira
+        Tickets</a>
+      <a href="#" class="block px-4 py-2 hover:bg-slate-800 rounded-lg text-sm font-medium text-slate-300">Team
+        Insights</a>
     </nav>
-    
+
     <div class="p-4 border-t border-slate-800">
       <div class="flex items-center space-x-3">
         <div class="w-8 h-8 rounded-full bg-primary-500"></div>
@@ -31,7 +34,8 @@
         <h2 class="text-3xl font-bold tracking-tight text-slate-900">Engineering Overview</h2>
         <p class="text-slate-500 mt-1">System-wide metrics and cross-tool correlation.</p>
       </div>
-      <button class="px-4 py-2 bg-white border border-slate-200 rounded-lg shadow-sm text-sm font-medium hover:bg-slate-50">
+      <button
+        class="px-4 py-2 bg-white border border-slate-200 rounded-lg shadow-sm text-sm font-medium hover:bg-slate-50">
         Run Full Scan
       </button>
     </header>
@@ -46,7 +50,7 @@
           <span class="text-slate-400">vs last month</span>
         </div>
       </div>
-      
+
       <div class="glass-panel p-6 rounded-2xl">
         <p class="text-sm font-medium text-slate-500">Active Merge Requests</p>
         <p class="text-4xl font-bold mt-2">{{ repoHealth()?.total_merge_requests || 0 }}</p>
@@ -83,7 +87,8 @@
                 <td class="py-3 font-medium text-primary-600">{{ c.jira_key }}</td>
                 <td class="py-3 font-mono text-slate-400">{{ c.commit_sha.substring(0, 8) }}</td>
                 <td class="py-3">
-                  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                     {{ c.status }}
                   </span>
                 </td>
@@ -97,21 +102,21 @@
       </div>
 
       <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <h3 class="text-lg font-semibold mb-4">Process Velocity</h3>
-          <div class="space-y-6">
-            <div *ngFor="let item of cycleTime()" class="relative">
-              <div class="flex justify-between text-sm mb-1">
-                <span>{{ item.key }} ({{ item.type }})</span>
-                <span class="font-medium">{{ item.cycle_time_days }} days</span>
-              </div>
-              <div class="w-full bg-slate-100 rounded-full h-2">
-                <div class="bg-primary-500 h-2 rounded-full" [style.width.%]="(item.cycle_time_days / 30) * 100"></div>
-              </div>
+        <h3 class="text-lg font-semibold mb-4">Process Velocity</h3>
+        <div class="space-y-6">
+          <div *ngFor="let item of cycleTime()" class="relative">
+            <div class="flex justify-between text-sm mb-1">
+              <span>{{ item.key }} ({{ item.type }})</span>
+              <span class="font-medium">{{ item.cycle_time_days }} days</span>
             </div>
-            <div *ngIf="cycleTime().length === 0" class="py-12 text-center text-slate-400">
-                No cycle time data available.
+            <div class="w-full bg-slate-100 rounded-full h-2">
+              <div class="bg-primary-500 h-2 rounded-full" [style.width.%]="(item.cycle_time_days / 30) * 100"></div>
             </div>
           </div>
+          <div *ngIf="cycleTime().length === 0" class="py-12 text-center text-slate-400">
+            No cycle time data available.
+          </div>
+        </div>
       </div>
     </div>
   </main>
