@@ -52,3 +52,5 @@ backend/app/__pycache__/
 
 # Virtual environments
 backend/.venv
+
+.env
